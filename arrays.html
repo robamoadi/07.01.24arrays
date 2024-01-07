@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Add Remove Arrays</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <h1 class="text-center text-success mt-3">Add Remove Grades</h1>
+    <p class="mx-1 fs-5">GRADE : <input type="number" id="grade" class="form-control-sm"></p>
+    <button id="btn_add_right_side" class="mx-1 btn btn-outline-success">ADD RIGHT SIDE</button>
+    <button id="btn_rem_right_side" class="btn btn-outline-info">REMOVE FROM RIGHT SIDE</button>
+    <button id="btn_add_left_side" class="btn btn-outline-success">ADD LEFT SIDE</button>
+    <button id="btn_rem_left_side" class="btn btn-outline-info">REMOVE FROM LEFT SIDE</button>
+    <button id="btn_sum" class="btn btn-outline-success">SUM</button>
+    <button id="btn_avg" class="btn btn-outline-info">AVG</button>
+    <hr>
+    <p id="result" class="mx-2 fs-5">[]</p>
+    <script>
+
+        const grades = []
+        let results = document.getElementById("result")
+        let grade = document.getElementById("grade")
+        let btn1 = document.getElementById("btn_add_right_side")
+        let btn2 = document.getElementById("btn_rem_right_side")
+        let btn3 = document.getElementById("btn_add_left_side")
+        let btn4 = document.getElementById("btn_rem_left_side")
+        let btn5 = document.getElementById("btn_sum")
+        let btn6 = document.getElementById("btn_avg")
+        btn1.addEventListener("click", () => {
+            let grad = parseInt(grade.value)
+            grades.push(grad)
+            results.innerHTML = "[" + grades + "]" 
+            grade.value = ""
+        })
+        btn2.addEventListener("click", () => {
+            grades.pop()
+            results.innerHTML = "[" + grades + "]"
+            grade.value = ""
+        })
+        btn3.addEventListener("click", () => {
+            let grad = parseInt(grade.value)
+            grades.unshift(grad)
+            results.innerHTML = "[" + grades + "]"
+            grade.value = ""
+        })
+        btn4.addEventListener("click", () => {
+            grades.shift()
+            results.innerHTML = "[" + grades + "]" 
+            grade.value = ""
+        })
+        let sum = 0
+        btn5.addEventListener("click", () => {
+            for (let i = 0; i < grades.length; i++) {
+                sum += grades[i]
+                results.innerHTML = "[" +grades+ "]" + "<br>" + sum
+            }
+        })
+        let avg = 0
+        btn6.addEventListener("click", () => {
+            results.innerHTML ="[" + grades+ "]" + "<br>" + sum + "<br>" + sum / grades.length
+        })
+       
+    </script>
+
+</body>
+
+</html>

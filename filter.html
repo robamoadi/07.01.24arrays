@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Filter Function</title>
+</head>
+
+<body>
+    <p id="result"></p>
+    <p id="even"></p>
+    <p id="odd"></p>
+    <p id="name"></p>
+    <script>
+        let arr = [5, 12, 18, 800, 300, 99]
+        const result = []
+
+        let greater_than_100 = arr.filter((num) => num > 100)
+        document.getElementById("result").innerHTML = `numbers greater than 100 : [${greater_than_100}]` 
+       
+        
+        let even_number = arr.filter(num => {return num%2 == 0})
+        document.getElementById("even").innerHTML = `even numbers: [${even_number}]` 
+
+        let odd_number = arr.filter(num => {return num%2 == 1})
+        document.getElementById("odd").innerHTML = `odd numbers: [${odd_number}]`
+
+        let names = ["are" , "great" , "nice" , "is"]
+        let name_length = names.filter (num => {return num.length >= 3})
+        document.getElementById("name").innerHTML = `[${name_length}]` 
+    </script>
+</body>
+
+</html>
