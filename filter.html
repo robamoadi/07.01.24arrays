@@ -9,9 +9,12 @@
     <p id="result"></p>
     <p id="even"></p>
     <p id="odd"></p>
+    <p id="less_than_10"></p>
+    <p id="divideby3"></p>
     <p id="name"></p>
+    <p id="same_length"></p>
     <script>
-        let arr = [5, 12, 18, 800, 300, 99]
+        let arr = [5, 12, 18, 800, 300, 99 , 4]
         const result = []
 
         let greater_than_100 = arr.filter((num) => num > 100)
@@ -24,9 +27,20 @@
         let odd_number = arr.filter(num => {return num%2 == 1})
         document.getElementById("odd").innerHTML = `odd numbers: [${odd_number}]`
 
-        let names = ["are" , "great" , "nice" , "is"]
+        let less_than_10 = arr.filter((number) => number < 10)
+        document.getElementById("less_than_10").innerHTML = `numbers less than 10: [${less_than_10}]` 
+
+        let not_divi_3 = arr.filter((number) => {return !(number % 3 == 0)})
+        document.getElementById("divideby3").innerHTML = `numbers dont divide by 3: [${not_divi_3}]`
+
+        let names = ["are" , "great" , "nice" , "is" , "dog" , "rolling"]
         let name_length = names.filter (num => {return num.length >= 3})
         document.getElementById("name").innerHTML = `[${name_length}]` 
+
+        let user = parseInt(prompt("enter a number"))
+        let same_length = names.filter (nam => {return nam.length == user} )
+        document.getElementById("same_length").innerHTML = `[${same_length}]`
+        
     </script>
 </body>
 
